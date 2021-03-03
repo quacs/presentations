@@ -1,0 +1,49 @@
+{
+	// Place your slides workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"RevealJS Slide Starter": {
+		"scope": "html",
+		"prefix": "slides",
+		"body": [
+			"<div class=\"reveal\">",
+			"\t<div class=\"slides\">",
+            "\t<section>",
+            "\t\t<h1>Slide 1</h1>",
+            "\t</section>",
+        	"\t</div>",
+        	"</div>"
+		],
+		"description": "Add HTML for new slide"
+	},
+	"RevealJS CSS": {
+		"scope": "html",
+		"prefix": "revealcss",
+		"body": [
+			"<link rel=\"stylesheet\" href=\"dist/reset.css\">",
+			"<link rel=\"stylesheet\" href=\"dist/reveal.css\">",
+			"<link rel=\"stylesheet\" href=\"dist/theme/black.css\" id=\"theme\">"
+		],
+		"description": "Add RevealJS CSS links"
+	},
+	"RevealJS JS": {
+		"scope": "html",
+		"prefix": "revealjs",
+		"body": [
+			"<script src=\"dist/reveal.js\"></script>",
+			"<script>",
+			"// More info about initialization & config:",
+			"// - https://revealjs.com/initialization/",
+			"// - https://revealjs.com/config/",
+			"Reveal.initialize({",
+			"\thash: true",
+			"});",
+			"</script>"
+		],
+		"description": "Add RevealJS JS script"
+	}
+}
