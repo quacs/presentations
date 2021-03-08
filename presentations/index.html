@@ -175,18 +175,57 @@
 
                 <section data-auto-animate>
                     <h2>Course conflict example</h2>
-                    <p>I've signed up for these sections.</p>
-                    <p>TODO: image here</p>
+                    <p>I've selected up for these sections.</p>
+                    <ul>
+                        <li>Course A: T1 T2 <span style="opacity: 0%">T3</span></li>
+                        <li>Course B: T1 T2 T3</li>
+                    </ul>
 
-                    <p>Can I sign up for this section?</p>
+                    <p>Can I select this section?</p>
+                    <ul>
+                        <li>Course C: <span style="opacity: 0%">T1</span> T2 T3</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Course conflict example</h2>
+                    <p>I've selected up for these sections.</p>
+                    <p>Yes!</p>
+                    <ul>
+                        <li>Course A: <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="2">T1</span></span> <span class="fragment highlight-green" data-fragment-index="3">T2</span> <span style="opacity: 0%">T3</span></li>
+                        <li>Course B: <span class="fragment highlight-green" data-fragment-index="3">T1</span> <span class="fragment highlight-current-green" data-fragment-index="1">T2</span> <span class="fragment highlight-current-green" data-fragment-index="2">T3</span></li>
+                        <li>Course C: <span style="opacity: 0%">T1</span> <span class="fragment highlight-current-green" data-fragment-index="2">T2</span> <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="3">T3</span></span></li>
+                    </ul>
                 </section>
 
                 <section data-auto-animate>
                     <h2>Course conflict example</h2>
                     <p>I've signed up for these sections.</p>
-                    <p>TODO: image here</p>
+                    <ul>
+                        <li>Course A: T1 T2 <span style="opacity: 0%">T3</span></li>
+                        <li>Course B: T1 T2 T3</li>
+                        <li>Course C: <span style="opacity: 0%">T1</span> T2 T3</li>
+                    </ul>
 
-                    <p>What about this one?</p>
+                    <p>Can I add this one now?</p>
+                    <ul>
+                        <li>Course D: <span style="opacity: 0%">T1</span> T2 <span style="opacity: 0%">T3</span></li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Course conflict example</h2>
+                    <p>I've signed up for these sections.</p>
+                    <ul>
+                        <li>Course A: <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="2">T1</span></span> <span class="fragment highlight-red" data-fragment-index="3">T2</span> <span style="opacity: 0%">T3</span></li>
+                        <li>Course B: <span class="fragment highlight-green" data-fragment-index="3">T1</span> <span class="fragment highlight-current-red" data-fragment-index="1">T2</span> <span class="fragment highlight-current-green" data-fragment-index="2">T3</span></li>
+                        <li>Course C: <span style="opacity: 0%">T1</span> <span class="fragment highlight-current-red" data-fragment-index="2">T2</span> <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-green" data-fragment-index="3">T3</span></span></li>
+                    </ul>
+
+                    <p>No!</p>
+                    <ul>
+                        <li>Course D: <span style="opacity: 0%">T1</span> <span class="fragment highlight-red" data-fragment-index="1">T2</span> <span style="opacity: 0%">T3</span></li>
+                    </ul>
                 </section>
             </section>
 
