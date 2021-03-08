@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>How QuACS Works</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../dist/reset.css">
+    <link rel="stylesheet" href="../dist/reveal.css">
+    <link rel="stylesheet" href="../dist/theme/night.css" id="theme">
+    <link rel="stylesheet" href="../dist/custom.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h3>What goes into making QuACS?</h3>
+                <p>Solving self-imposed problems for fun and profit</p>
+            </section>
+
+            <section>
+                <section>
+                    <h2>What is QuACS?</h2>
+                    <p>QuACS is a course scheduling tool to help students pick which courses to register.</p>
+                </section>
+
+                <section>
+                    <h2>Key features:</h2>
+                    <ul>
+                        <li>Automatic schedule generation</li>
+                        <li>Conflicting course detection</li>
+                        <li>Automatic prerequisite checking</li>
+                        <li>Up-to-date data</li>
+                        <li>View past semesters</li>
+                    </ul>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>Automatic schedule generation based on which sections you have selected</li>
+                            <ul>
+                                <li>If there are multiple possible schedules, we'll show all of them.</li>
+                            </ul>
+                            <li>QuACS will automatically check if a course can be added to any possible schedule</li>
+                            <li>Automatic prerequisite checking</li>
+                            <li>Up-to-date data</li>
+                            <li>View past semesters</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Our goals</h2>
+                    <ul>
+                        <li>Always up-to-date data</li>
+                        <li>Zero maintenance</li>
+                        <li>Mobile-first</li>
+                        <li>Open data availablity</li>
+                        <li>Above all else, it must be fast</li>
+                    </ul>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>Always up-to-date data - it's useless if courses are missing/out of date</li>
+                            <li>Zero maintenance - don't want the site to randomly be down, don't want to have to support it post graduation</li>
+                            <li>Mobile-first</li>
+                            <li>Open data availablity - let people use our data for their own projects/schedulers</li>
+                            <li>Above all else, it must be fast - there's no excuse for being slow</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Analytics</h2>
+                    <a href="https://stats.quacs.org/">All analytics are publicly available</a>
+                    <p><br /></p>
+                    <div class="columns">
+                        <div class="col">
+                            <h4>Overall since November 2020</h4>
+                            <p>19.2k total visitors</p>
+                            <p>382k page views</p>
+                        </div>
+                        <div class="col">
+                            <h4>Best day: November 9, 2020</h4>
+                            <p>2,000 unique visitors</p>
+                            <p>41.8k page views</p>
+                        </div>
+                    </div>
+
+                    <aside class="notes">
+                        Peak around course registration
+                    </aside>
+                </section>
+
+                <section data-background-iframe="https://stats.quacs.org/" data-background-interactive>
+                    <aside class="notes">
+                        <ul>
+                            <li>All data is easily accessible</li>
+                            <li>You can view which actions are most popular (show events)</li>
+                        </ul>
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <h2>History of QuACS</h2>
+                <p>Initial plan: April Fools joke for the <a href="https://discord.gg/rpi">RPI Academic Discord Server</a></p>
+                <p>March 2020: Old QuACS</p>
+                <p>June 2020: Modern QuACS</p>
+                <p>October 2020: Previous semesters are added</p>
+                <p>January 2021: QuACS joins RCOS</p>
+                <p>February 2021: Arch support</p>
+
+                <aside class="notes">
+                    QuACS was developed during free time while devs had jobs/classes/other projects.
+                </aside>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Website implementation</h2>
+                </section>
+
+                <section>
+                    <h2>Frontend technologies</h2>
+                    <p>Vue.js</p>
+                    <p>QuACS is a <span style="color: #00CC00">Progressive Web App</span></p>
+                    <ul>
+                        <li>Installable as an application</li>
+                        <li>Fully functional offline</li>
+                    </ul>
+
+                    <aside class="notes">
+                        Talk about what PWAs are
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Analytics</h2>
+                    <a href="https://umami.is">https://umami.is</a>
+                    <p>Privacy focused</p>
+                    <p>Self hosted</p>
+                    <p>Tracks unique sessions, page views, and events</p>
+                    <p>Analytics helps us drive design choices</p>
+
+                    <aside class="notes">
+                        All anonymized data
+                        Easy to opt-out
+                        Self hosted = no one stealing your data
+
+                        Design choices: talk about CRN copying
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <section data-auto-animate>
+                    <h2>Course conflict algorithm</h2>
+                    <p>Problem: Given some selected courses, can you mark which courses can still be registered for without conflicts?</p>
+                    <br />
+                    <p>Sounds simple, right?</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Course conflict algorithm</h2>
+                    <p>Problem: Given some selected courses, can you mark which courses can still be registered for without conflicts?</p>
+                    <br />
+                    <p>What if the user has selected multiple sections from each of their courses?</p>
+                </section>
+
+                <section>
+                    <h2>How about an example?</h2>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Course conflict example</h2>
+                    <p>I've signed up for these sections.</p>
+                    <p>TODO: image here</p>
+
+                    <p>Can I sign up for this section?</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Course conflict example</h2>
+                    <p>I've signed up for these sections.</p>
+                    <p>TODO: image here</p>
+
+                    <p>What about this one?</p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Course conflict algorithm</h2>
+                    <ol>
+                        <li>Generate all valid schedules (use DFS)</li>
+                        <ul>
+                            <li>Each level is a course</li>
+                            <li>Each branch is a section of that course</li>
+                            <li>Check each section against every time block of every other section in the schedule</li>
+                        </ul>
+
+                        <br />
+                        <li>Does the course/section we're checking work in at least one of the schedules?</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <p>This takes a while! Imagine the poor freshman who has every section of CS1, Calc 1, and Chem 1 selected :(</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Can we mitigate the runtime?</h2>
+                    <ul>
+                        <li>Use our RPI education to come up with a fundamentally better algorithm</li>
+                        <li>Only check a few schedules</li>
+                        <li>Pre-compute which sections conflict with each other</li>
+                        <li>Write it in Rust</li>
+                        <li>If all else fails, upgrade the server</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <ul>
+                        <li>Use our RPI education to come up with a fundamentally better algorithm</li>
+                    </ul>
+
+                    <br />
+                    <p>Despite <a href="http://kryten.mm.rpi.edu/scb_pnp_solved22.pdf">Professor Bringsjord's "proof" of P=NP</a>, we've been unable to show it in practice</p>
+                    <br />
+
+                    <p class="fragment">There isn't a fundamentally faster algorithm</p>
+
+                    <br />
+                    <p class="fragment">Please: If you can figure this one out, let us know</p>
+
+                    <aside class="notes">
+                        Mention that we've spoken to a lot of people about this
+                    </aside>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Can we mitigate the runtime?</h2>
+                    <ul>
+                        <li style="color: red"><s>Use our RPI education to come up with a fundamentally better algorithm</s></li>
+                        <li>Only check a few schedules</li>
+                        <li>Pre-compute which sections conflict with each other</li>
+                        <li>Write it in Rust</li>
+                        <li>If all else fails, upgrade the server</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <ul>
+                        <li>Only check a few schedules</li>
+                    </ul>
+
+                    <br />
+                    <p class="fragment">If a course doesn't work in the first N schedules, it probably doesn't work at all</p>
+                    <br />
+                    <p class="fragment">Might be good enough for some course schedulers&nbsp;😉</p>
+                    <br />
+                    <h3 class="fragment">Not good enough for QuACS</h3>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Can we mitigate the runtime?</h2>
+                    <ul>
+                        <li style="color: red"><s>Use our RPI education to come up with a fundamentally better algorithm</s></li>
+                        <li style="color: red"><s>Only check a few schedules</s></li>
+                        <li>Pre-compute which sections conflict with each other</li>
+                        <li>Write it in Rust</li>
+                        <li>If all else fails, upgrade the server</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <ul>
+                        <li>Pre-compute which sections conflict with each other</li>
+                    </ul>
+
+                    <br />
+                    <p>We won't have to check if two sections overlap (That was the nested loop in our DFS)</p>
+                    <p>This makes the algorithm a lot faster!</p>
+                    <p>It takes up a bit more memory, but compresses well</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Can we mitigate the runtime?</h2>
+                    <ul>
+                        <li style="color: red"><s>Use our RPI education to come up with a fundamentally better algorithm</s></li>
+                        <li style="color: red"><s>Only check a few schedules</s></li>
+                        <li style="color: #00CC00">Pre-compute which sections conflict with each other</li>
+                        <li>Write it in Rust</li>
+                        <li>If all else fails, upgrade the server</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <ul>
+                        <li>Write it in Rust</li>
+                    </ul>
+
+                    <img src="https://rustacean.net/assets/rustacean-flat-happy.svg" />
+
+                    <aside class="notes">
+                        As we all know, Rust is the greatest programming language known to man. Any program written in it instantly gains a massive speed improvement. If we write our algorithm in Rust it'd probably become so fast that we wouldn't even need a computer to run it on.
+                    </aside>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Can we mitigate the runtime?</h2>
+                    <ul>
+                        <li style="color: red"><s>Use our RPI education to come up with a fundamentally better algorithm</s></li>
+                        <li style="color: red"><s>Only check a few schedules</s></li>
+                        <li style="color: #00CC00">Pre-compute which sections conflict with each other</li>
+                        <li style="color: #00CC00">Write it in Rust</li>
+                        <li>If all else fails, upgrade the server</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <ul>
+                        <li>If all else fails, upgrade the server</li>
+                    </ul>
+
+                    <p class="fragment">Wait a second... <span class="fragment">I thought we didn't want any maintenance???</span></p>
+
+                    <p class="fragment">We don't want to have to manage a cluster of servers</p>
+                    <p class="fragment">Why do we even need a server?</p>
+
+                    <aside class="notes">
+                        Ben: start blabbering about how servers are good
+                        ELi: interrupt Ben, say that he doesn't want servers since they're a lot of maintenance
+                        Time first transition with interruption, second transition with the rest of the complaints
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Course conflict algorithm (revisited)</h2>
+                    <p>Problem: Given some selected courses, can you mark which courses can still be registered for without conflicts, all within the browser?</p>
+                    <br />
+                    <p>This sounds impossible :(</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Old ideas, revisited</h2>
+                    <ul>
+                        <li>Pre-compute which sections conflict with each other?</li>
+                        <ul>
+                            <li>Pre-computing on page load increases load times</li>
+                            <li>This is a lot of data, so downloading it takes a while</li>
+                            <li>Turns out it's still not fast enough</li>
+                        </ul>
+                        <li>Write it in Rust?</li>
+                        <ul>
+                            <li>Websites are written in Javascript 😭</li>
+                        </ul>
+                    </ul>
+
+                    <aside class="notes">
+                        ELi slide
+
+                        Ben after ELi says we can't use Rust: "But I really like rust :(" (time with transition to next slide)
+                    </aside>
+                </section>
+
+                <section data-auto-animate>
+                    <ul>
+                        <li>Write it in Rust?</li>
+                    </ul>
+
+                    <p>But I really like Rust!</p>
+                </section>
+
+                <section data-auto-animate>
+                    <ul>
+                        <li>Write it in Rust?</li>
+                    </ul>
+
+                    <p>But I really like Rust!</p>
+                    <img src="https://rustwasm.github.io/wasm-pack/public/img/wasm-ferris.png" />
+
+                    <aside class="notes">
+                        Ben slide
+
+                        Rust can be compiled to WebAssembly, which is extremely efficient code which can run in web browsers. You get all of the benefits of a compiled language but in client-side code.
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>New ideas</h2>
+                </section>
+
+                <section>
+                    <h2>Store the times a section occurs in a bitvector/arbitrary length integer</h2>
+                    <p>Allocate a single bit for every hour in the week</p>
+                    <p>Bits are 1 when the section occurs and 0 for all other times</p>
+                    <p>Check for conflict with "bitwise and"</p>
+                    <p>Pre-computation can minimize the number of bits needed</p>
+                </section>
+
+                <section>
+                    <h2>Bitvectors can be "ORed" together to store the times of the schedule</h2>
+                    <p>One operation to check if a section can be added</p>
+                </section>
+
+                <section>
+                    <h2>Run the algorithm in a separate thread</h2>
+                    <p>This means the site won't freeze while running the algorithm</p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Does it work?</h2>
+                </section>
+
+                <section>
+                    <h2 class="r-fit-text">2.45ms</h2>
+                    <p class="r-fit-text">to generate all schedules for CS1, Calc 1, and Chem 1</p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Data Collection and Site Generation</h2>
+                </section>
+
+                <section>
+                    <h2>Data Collection</h2>
+                    <p>We want the most up-to-date and accurate data</p>
+                    <p>Course availablity is determined by <span>SIS</span></p>
+                    <p>You shouldn't see any difference between SIS and QuACS!</p>
+
+                    <aside class="notes">
+                        If data is out-of-date or inaccurate, a scheduler is useless.
+
+                        Since SIS
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Scraping Data</h2>
+                    <p>Helper scripts log into SIS for course times, seats, prerequisites, etc.</p>
+                    <p>Course descriptions come from the catalog</p>
+                    <p>Also collect data not on frontend</p>
+                    <p>All stored in <a href="https://github.com/quacs/quacs-data">quacs/quacs-data</a></p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Deploying QuACS</h2>
+                <ol>
+                    <li>Scrape data</li>
+                    <li>Build wasm component</li>
+                    <li>Download Umami script</li>
+                    <li>Build site</li>
+                    <li>Deploy</li>
+                </ol>
+            </section>
+
+            <section>
+                <section data-auto-animate>
+                    <h2>Automation</h2>
+                    <h3>QuACS is fully automated by GitHub Actions!</h3>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>QuACS is fully automated by GitHub Actions!</h3>
+                    <p>Standard actions</p>
+                    <ul>
+                        <li>Linting</li>
+                        <li>Site performance</li>
+                        <li>CodeQL</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>QuACS is fully automated by GitHub Actions!</h3>
+                    <p>Data collection</p>
+                    <ul>
+                        <li>Four scraper actions</li>
+                        <li>Runs every hour</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>QuACS is fully automated by GitHub Actions!</h3>
+                    <p>Site building</p>
+                    <ul>
+                        <li>Each semester is a separate instance</li>
+                        <li>One action builds all semesters</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>QuACS is fully automated by GitHub Actions!</h3>
+                    <p>Total time from scraping to deploy: 37 minutes</p>
+                    <p>Hosted with GitHub pages</p>
+                    <p>Zero downtime</p>
+                </section>
+            </section>
+
+            <section>
+                <h1 class="r-fit-text">Any QuACtions?</h1>
+            </section>
+        </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            plugins: [RevealNotes],
+        });
+    </script>
+</body>
+
+</html>
