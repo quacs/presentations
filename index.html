@@ -211,13 +211,13 @@
                     <h2>Course conflict example</h2>
                     <p>I've selected up for these sections.</p>
                     <ul>
-                        <li>Course A: T1 T2 <span style="opacity: 0%">T3</span></li>
-                        <li>Course B: T1 T2 T3</li>
+                        <li>Course A: S1 S2 <span style="opacity: 0%">S3</span></li>
+                        <li>Course B: S1 S2 S3</li>
                     </ul>
 
-                    <p>Can I select this section?</p>
+                    <p>Can I select these sections?</p>
                     <ul>
-                        <li>Course C: <span style="opacity: 0%">T1</span> T2 T3</li>
+                        <li>Course C: <span style="opacity: 0%">S0</span> S1 S2</li>
                     </ul>
                     <aside class="notes">
                         Ben
@@ -229,9 +229,9 @@
                     <p>I've selected up for these sections.</p>
                     <p>Yes!</p>
                     <ul>
-                        <li>Course A: <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="2">T1</span></span> <span class="fragment highlight-green" data-fragment-index="3">T2</span> <span style="opacity: 0%">T3</span></li>
-                        <li>Course B: <span class="fragment highlight-green" data-fragment-index="3">T1</span> <span class="fragment highlight-current-green" data-fragment-index="1">T2</span> <span class="fragment highlight-current-green" data-fragment-index="2">T3</span></li>
-                        <li>Course C: <span style="opacity: 0%">T1</span> <span class="fragment highlight-current-green" data-fragment-index="2">T2</span> <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="3">T3</span></span></li>
+                        <li>Course A: <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="2">S1</span></span> <span class="fragment highlight-green" data-fragment-index="3">S2</span> <span style="opacity: 0%">S3</span></li>
+                        <li>Course B: <span class="fragment highlight-green" data-fragment-index="3">S1</span> <span class="fragment highlight-current-green" data-fragment-index="1">S2</span> <span class="fragment highlight-current-green" data-fragment-index="2">S3</span></li>
+                        <li>Course C: <span style="opacity: 0%">S0</span> <span class="fragment highlight-current-green" data-fragment-index="2">S1</span> <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="3">S2</span></span></li>
                     </ul>
                     <aside class="notes">
                         Ben
@@ -242,14 +242,14 @@
                     <h2>Course conflict example</h2>
                     <p>I've signed up for these sections.</p>
                     <ul>
-                        <li>Course A: T1 T2 <span style="opacity: 0%">T3</span></li>
-                        <li>Course B: T1 T2 T3</li>
-                        <li>Course C: <span style="opacity: 0%">T1</span> T2 T3</li>
+                        <li>Course A: S1 S2 <span style="opacity: 0%">S3</span></li>
+                        <li>Course B: S1 S2 S3</li>
+                        <li>Course C: <span style="opacity: 0%">S0</span> S1 S2</li>
                     </ul>
 
                     <p>Can I add this one now?</p>
                     <ul>
-                        <li>Course D: <span style="opacity: 0%">T1</span> T2 <span style="opacity: 0%">T3</span></li>
+                        <li>Course D: <span style="opacity: 0%">S1</span> S1 <span style="opacity: 0%">S2</span></li>
                     </ul>
                     <aside class="notes">
                         Ben
@@ -260,14 +260,14 @@
                     <h2>Course conflict example</h2>
                     <p>I've signed up for these sections.</p>
                     <ul>
-                        <li>Course A: <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="2">T1</span></span> <span class="fragment highlight-red" data-fragment-index="3">T2</span> <span style="opacity: 0%">T3</span></li>
-                        <li>Course B: <span class="fragment highlight-green" data-fragment-index="3">T1</span> <span class="fragment highlight-current-red" data-fragment-index="1">T2</span> <span class="fragment highlight-current-green" data-fragment-index="2">T3</span></li>
-                        <li>Course C: <span style="opacity: 0%">T1</span> <span class="fragment highlight-current-red" data-fragment-index="2">T2</span> <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-green" data-fragment-index="3">T3</span></span></li>
+                        <li>Course A: <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-current-green" data-fragment-index="2">S1</span></span> <span class="fragment highlight-red" data-fragment-index="3">S2</span> <span style="opacity: 0%">S3</span></li>
+                        <li>Course B: <span class="fragment highlight-green" data-fragment-index="3">S1</span> <span class="fragment highlight-current-red" data-fragment-index="1">S2</span> <span class="fragment highlight-current-green" data-fragment-index="2">S3</span></li>
+                        <li>Course C: <span style="opacity: 0%">S0</span> <span class="fragment highlight-current-red" data-fragment-index="2">S1</span> <span class="fragment highlight-current-green" data-fragment-index="1"><span class="fragment highlight-green" data-fragment-index="3">S2</span></span></li>
                     </ul>
 
                     <p>No!</p>
                     <ul>
-                        <li>Course D: <span style="opacity: 0%">T1</span> <span class="fragment highlight-red" data-fragment-index="1">T2</span> <span style="opacity: 0%">T3</span></li>
+                        <li>Course D: <span style="opacity: 0%">S1</span> <span class="fragment highlight-red" data-fragment-index="1">S1</span> <span style="opacity: 0%">S2</span></li>
                     </ul>
                     <aside class="notes">
                         Ben
@@ -523,8 +523,24 @@
                     </aside>
                 </section>
 
-                <section>
-                    <h2>Store the times a section occurs in a bitvector/arbitrary length integer</h2>
+                <section data-auto-animate>
+                    <h2>Store the times a section occurs in a bitvector</h2>
+                    <p>Allocate a single bit for every hour in the week</p>
+                    <p>Bits are 1 when the section occurs and 0 for all other times</p>
+
+                    <br />
+
+                    <p>Section meets at times T1 <span style="opacity: 20%">T2 T3</span> T4 <span style="opacity: 20%">T5</span></p>
+                    <!--p><span style="opacity: 0%">Section meets at times</span> <span style="opacity: 0%">T</span>1 <span style="opacity: 0%">T</span>0 <span style="opacity: 0%">T</span>0 <span style="opacity: 0%">T</span>1 <span style="opacity: 0%">T</span>0</p-->
+                    <p>This would be stored as<span style="opacity: 0%">T</span>1 <span style="opacity: 0%">T</span>0 <span style="opacity: 0%">T</span>0 <span style="opacity: 0%">T</span>1 <span style="opacity: 0%">T</span>0</p>
+
+                    <aside class="notes">
+                        Ben
+                    </aside>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Store the times a section occurs in a bitvector</h2>
                     <p>Allocate a single bit for every hour in the week</p>
                     <p>Bits are 1 when the section occurs and 0 for all other times</p>
                     <p>Check for conflict with "bitwise and"</p>
@@ -555,7 +571,7 @@
                 <section>
                     <h2>Does it work?</h2>
                     <aside class="notes">
-                        ELi
+                        Ben
                     </aside>
                 </section>
 
@@ -563,7 +579,7 @@
                     <h2 class="r-fit-text">2.45ms</h2>
                     <p class="r-fit-text">to generate all schedules for CS1, Calc 1, and Chem 1</p>
                     <aside class="notes">
-                        ELi
+                        Ben
                     </aside>
                 </section>
             </section>
@@ -571,6 +587,9 @@
             <section>
                 <section>
                     <h2>Data Collection and Site Generation</h2>
+                    <aside class="notes">
+                        ELi
+                    </aside>
                 </section>
 
                 <section>
@@ -583,8 +602,6 @@
                         ELi
 
                         If data is out-of-date or inaccurate, a scheduler is useless.
-
-                        Since SIS
                     </aside>
                 </section>
 
@@ -596,6 +613,8 @@
                     <p>All stored in <a href="https://github.com/quacs/quacs-data">quacs/quacs-data</a></p>
                     <aside class="notes">
                         ELi
+
+                        Catalog prerequisites are bad
                     </aside>
                 </section>
             </section>
